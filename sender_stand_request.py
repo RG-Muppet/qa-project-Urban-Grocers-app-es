@@ -22,5 +22,4 @@ def post_new_client_kit(kit_body):
                          headers=data.headers)
 
 
-response = post_new_client_kit(data.kit_body)
-print(response.status_code)
+
