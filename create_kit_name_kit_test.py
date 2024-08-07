@@ -9,17 +9,13 @@ def get_kit_body(name):
     return current_body
 
 
-def get_new_user_token(authToken):
-    current_authorization = data.headers.copy()
-    current_body["authToken"] = authToken
-    return current_authorization
-
-
 def positive_assert(name):
     kit_body = get_kit_body(name)
+    user_response = sender_stand_request.post_new_user(data.user_body)
     response = sender_stand_request.post_new_client_kit(kit_body)
+    assert user_response.json()["authToken"] != ""
     assert response.status_code == 201
-
+    assert response.json()["name"] == kit_body["name"]
 
 
 #	El número permitido de caracteres (1): kit_body = { "name": "a"}
@@ -55,11 +51,9 @@ def negative_assert_symbol(name):
     assert response.status_code == 400
 
 
-
 def negative_assert_no_name(kit_body):
     response = sender_stand_request.post_new_client_kit(kit_body)
     assert response.status_code == 400
-
 
 
 #	El número de caracteres es mayor que la cantidad permitida (512): kit_body = { "name":"El valor de prueba para esta comprobación será inferior a” }
@@ -77,7 +71,8 @@ def test_create_kit_number_type_name_get_error_response():
 
 #	El número de caracteres es menor que la cantidad permitida (0): kit_body = { "name": "" }
 def test_create_user_empty_name_get_error_response():
-    kit_body = get_kit_body("")
+    kit_body = data.kit_body.copy()
+    kit_body.pop("name")
     negative_assert_no_name(kit_body)
 
 

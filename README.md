@@ -1,4 +1,4 @@
-<p class="has-line-data" data-line-start="0" data-line-end="1">Este proyecto contiene pruebas automatizadas para validar la funcionalidad de la API de [Nombre del Proyecto]. Las pruebas están diseñadas para verificar la creación de kits y usuarios, asegurando que el sistema maneje correctamente los casos de éxito y los errores.</p>
+<p class="has-line-data" data-line-start="0" data-line-end="1">Este proyecto contiene pruebas automatizadas para validar la funcionalidad de la API de <strong><em>Urban Grocerss</em></strong>. Las pruebas están diseñadas para verificar la creación de kits y usuarios, asegurando que el sistema maneje correctamente los casos de éxito y los errores.</p>
 <h2 class="code-line" data-line-start=2 data-line-end=3 ><a id="Archivos_2"></a>Archivos</h2>
 <ul>
 <li class="has-line-data" data-line-start="4" data-line-end="5"><code>configuration.py</code>: Contiene las URL del sevidor y los enpoints trabajar con las API.</li>
