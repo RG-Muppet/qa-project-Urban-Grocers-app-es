@@ -15,51 +15,37 @@ pytest <span class="hljs-number">8.3</span>.<span class="hljs-number">2</span>
 </code></pre>
 </li>
 </ol>
-<h2 class="code-line" data-line-start=16 data-line-end=17 ><a id="Pruebas_16"></a>Pruebas</h2>
-<p class="has-line-data" data-line-start="17" data-line-end="19"><strong>1.
-### Comandos:
-API-1:
+**Comandos:**
 
-**<span style="color: yellow;">pytest</span>**
-create_kit_name_kit_test.py::test_create_kit_1_letter_in_name_get_success_response
+API-1:
+**<span style="color: yellow;">pytest</span>** create_kit_name_kit_test.py::test_create_kit_1_letter_in_name_get_success_response
 
 API-2:
-
 **<span style="color: yellow;">pytest</span>** create_kit_name_kit_test.py::test_create_user_511_letters_in_name_get_success_response
 
 API-3:
-
-**<span style="color: yellow;">pytest</span>**
-create_kit_name_kit_test.py::test_create_user_empty_name_get_error_response
+**<span style="color: yellow;">pytest</span>** create_kit_name_kit_test.py::test_create_user_empty_name_get_error_response
 
 API-4:
-
-**<span style="color: yellow;">pytest</span>**
-create_kit_name_kit_test.py::test_create_kit_512_letter_in_name_get_error_response
+**<span style="color: yellow;">pytest</span>** create_kit_name_kit_test.py::test_create_kit_512_letter_in_name_get_error_response
 
 API-5:
-
-**<span style="color: yellow;">pytest</span>**  create_kit_name_kit_test.py::test_create_user_special_caracter_in_name_get_success_response
+**<span style="color: yellow;">pytest</span>** create_kit_name_kit_test.py::test_create_user_special_caracter_in_name_get_success_response
 
 API-6:
-
-**<span style="color: yellow;">pytest</span>**
-create_kit_name_kit_test.py::test_create_kit_3_letter_2_spaces_in_name_get_success_response
+**<span style="color: yellow;">pytest</span>** create_kit_name_kit_test.py::test_create_kit_3_letter_2_spaces_in_name_get_success_response
 
 API-7:
-
-**<span style="color: yellow;">pytest</span>**
-create_kit_name_kit_test.py::test_create_kit_3_number_in_name_get_success_response
+**<span style="color: yellow;">pytest</span>** create_kit_name_kit_test.py::test_create_kit_3_number_in_name_get_success_response
 
 API-8.
-
-**<span style="color: yellow;">pytest</span>**
-create_kit_name_kit_test.py::test_create_user_no_first_name_get_error_response
+**<span style="color: yellow;">pytest</span>** create_kit_name_kit_test.py::test_create_user_no_first_name_get_error_response
 
 API-9.
+**<span style="color: yellow;">pytest</span>** create_kit_name_kit_test.py::test_create_kit_number_type_name_get_error_response
+<h2 class="code-line" data-line-start=16 data-line-end=17 ><a id="Pruebas_16"></a>Pruebas</h2>
+<p class="has-line-data" data-line-start="17" data-line-end="19"><strong>.
 
-**<span style="color: yellow;">pytest</span>**
-create_kit_name_kit_test.py::test_create_kit_number_type_name_get_error_response
 API-1  test_create_kit_1_letter_in_name_get_success_response</strong><br>
 <strong>Descripción:</strong>  se creará un usuario llenando el apartado “name” con solo una letra, en este caso la letra “a”.</p>
 <p class="has-line-data" data-line-start="20" data-line-end="21"><strong>Precondición:</strong></p>
