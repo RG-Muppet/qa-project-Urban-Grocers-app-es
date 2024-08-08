@@ -16,10 +16,13 @@ print(response.json())
 
 
 #creación de kit
-def post_new_client_kit(kit_body):
+def post_new_client_kit(kit_body, authToken):
+    headers = data.headers.copy()
+    headers["Authorization"] = "Bearer " + authToken
     return requests.post(configuration.URL_SERVICE + configuration.KITS_PATH,
                          json=kit_body,
-                         headers=data.headers)
+                         headers=headers)
+
 
 
 

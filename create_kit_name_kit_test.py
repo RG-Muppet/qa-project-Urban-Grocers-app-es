@@ -12,8 +12,11 @@ def get_kit_body(name):
 def positive_assert(name):
     kit_body = get_kit_body(name)
     user_response = sender_stand_request.post_new_user(data.user_body)
-    response = sender_stand_request.post_new_client_kit(kit_body)
-    assert user_response.json()["authToken"] != ""
+    user_response_json = user_response.json()
+    assert "authToken" in user_response_json
+    authToken = user_response_json["authToken"]
+    assert authToken != ""
+    response = sender_stand_request.post_new_client_kit(kit_body, authToken)
     assert response.status_code == 201
     assert response.json()["name"] == kit_body["name"]
 
@@ -46,13 +49,25 @@ def test_create_kit_3_number_in_name_get_success_response():
 
 def negative_assert_symbol(name):
     kit_body = get_kit_body(name)
-    response = sender_stand_request.post_new_client_kit(kit_body)
-
+    user_response = sender_stand_request.post_new_user(data.user_body)
+    user_response_json = user_response.json()
+    assert "authToken" in user_response_json
+    authToken = user_response_json["authToken"]
+    assert authToken != ""
+    response = sender_stand_request.post_new_client_kit(kit_body, authToken)
     assert response.status_code == 400
 
 
 def negative_assert_no_name(kit_body):
-    response = sender_stand_request.post_new_client_kit(kit_body)
+    user_response = sender_stand_request.post_new_user(data.user_body)
+    user_response_json = user_response.json()
+
+    assert "authToken" in user_response_json
+    token = user_response_json["authToken"]
+    assert token != ""
+
+    response = sender_stand_request.post_new_client_kit(kit_body, token)
+
     assert response.status_code == 400
 
 
@@ -64,9 +79,7 @@ def test_create_kit_512_letter_in_name_get_error_response():
 
 #	Se ha pasado un tipo de parámetro diferente (número): kit_body = { "name": 123 }
 def test_create_kit_number_type_name_get_error_response():
-    kit_body = get_kit_body(123)
-    response = sender_stand_request.post_new_client_kit(kit_body)
-    assert response.status_code == 400
+    negative_assert_no_name(123)
 
 
 #	El número de caracteres es menor que la cantidad permitida (0): kit_body = { "name": "" }
